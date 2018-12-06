@@ -8,7 +8,7 @@ COPY src/ ./src/
 RUN mvn package
 
 # Stage 2
-FROM openjdk:11-jre-slim
+FROM arm32v7/openjdk:11-jre-slim
 
 WORKDIR /myapp
 COPY --from=builder /myapp/target/*.jar ./app.jar
